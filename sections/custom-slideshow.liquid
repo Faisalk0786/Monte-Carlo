@@ -1,0 +1,78 @@
+<style>
+  .desk-cont {display: block!important;}
+  .mob-cont{display:none!important}
+  .bannern .slick-dots {position: absolute;bottom: 0px;}
+  .bannern{margin-bottom:0!important}
+  .bannern .slick-prev {left: 15px;z-index: 1;}
+  .bannern .slick-next {right: 15px;z-index: 1;}
+  @media(max-width:480px){
+    .desk-cont{display:none!important}
+  .mob-cont{display:block!important}
+  }
+</style>
+ <div class="bannern bannern-{{ section.id }}">
+    {%- for block in section.blocks -%}
+          {% if block.settings.img != blank  %}<div class="x1x">
+            {% if block.settings.link != blank  %}
+              <a href="{{ block.settings.link }}"> 
+                <img class="desk-cont" src="{{ block.settings.img | img_url: 'master' }}" width="100%" height="auto" loading="eager">
+                  <img class="mob-cont" src="{{ block.settings.mobimg | img_url: '600x' }}" width="100%" height="auto" loading="eager" >
+              </a>
+              {% else %}
+               <img class="desk-cont" src="{{ block.settings.img | img_url: 'master' }}" width="100%" height="auto" loading="eager" >
+                  <img class="mob-cont" src="{{ block.settings.mobimg | img_url: '600x' }}" width="100%" height="auto" loading="eager" >
+              {% endif %}
+            
+          </div>{% endif %}
+    {%- endfor -%}
+        </div>
+
+<script>
+  
+    $('.bannern-{{ section.id }}').slick({
+        autoplay: true,
+        arrows: true,
+        dots: true,
+        pauseOnHover: true,
+        
+    });
+
+</script>
+{% schema %}
+  {
+    
+"presets": [
+    {
+      "category": "Collection",
+      "name": "Custom Slideshow",
+      "settings": {}
+      
+    }
+  ],
+"blocks": [
+            {
+			  "type": "Slide",
+              "name": "Blocks",
+              "settings": [
+                
+                {
+                  "type": "image_picker",
+                  "id": "img",
+                  "label": "Image"
+                },
+                {
+                  "type": "image_picker",
+                  "id": "mobimg",
+                  "label": "Image"
+                },
+                {
+                  "type": "url",
+                  "id": "link",
+                  "label": "Link"
+                }
+				
+		]
+            }
+          ]
+  }
+{% endschema %}

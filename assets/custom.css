@@ -1,0 +1,50 @@
+h2.rich-text__heading.rte.inline-richtext.h1.scroll-trigger.animate--slide-in{font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-style: italic;}
+.collection-wrappa {
+    display: flex;
+}
+.collection-wrappa .collection {width: 65%;}
+.collection-wrappa .fimg{width:35%}
+a.vall {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    color: #000;
+    background: #ccc;
+    padding: 10px 35px;
+    display: inline-block;
+    text-decoration: none;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.fimg img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.fimg {
+    position: relative;
+    padding: 20px;
+}
+.collection__title--desktop-slider .title{text-align:center}
+.mfkbtn::before{display:none}
+.mfkbtn::after{display:none}
+.mfkbtn {
+    background: #000;
+    color: #fff;
+    border-radius: 6px;
+}
+.card__content .card__information .card__heading.h5 {
+    font-size: 18px;
+}
+
+@media(max-width:768px){
+  .collection-wrappa {
+    display: block;
+}
+  .collection-wrappa .collection {width: 100%;}
+.collection-wrappa .fimg{width:100%}
+}
